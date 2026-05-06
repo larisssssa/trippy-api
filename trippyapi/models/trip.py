@@ -10,4 +10,4 @@ class Trip(models.Model):
     departure_date = models.DateField()
     return_date = models.DateField(default="0000-00-00")
     imageurl = models.CharField()
-    creatorId = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
