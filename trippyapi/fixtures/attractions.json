@@ -1,0 +1,92 @@
+[
+  {
+    "model": "attraction.token",
+    "pk": "1",
+    "fields": {
+      "name": "Central Park",
+      "description": "",
+      "imageurl": "",
+      "category_id": 6
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "2",
+    "fields": {
+      "name": "Times Square",
+      "description": "",
+      "imageurl": "",
+      "category_id": 2
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "3",
+    "fields": {
+      "name": "Metropolitan Museum of Art",
+      "description": "",
+      "imageurl": "",
+      "category_id": 5
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "4",
+    "fields": {
+      "name": "Convento da Penha",
+      "description": "",
+      "imageurl": "",
+      "category_id": 3
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "5",
+    "fields": {
+      "name": "Curva da Jurema",
+      "description": "",
+      "imageurl": "",
+      "category_id": 4
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "6",
+    "fields": {
+      "name": "Pedra Azul",
+      "description": "",
+      "imageurl": "",
+      "category_id": 6
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "7",
+    "fields": {
+      "name": "Belem Tower",
+      "description": "",
+      "imageurl": "",
+      "category_id": 3
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "8",
+    "fields": {
+      "name": "Praca do Comercio",
+      "description": "",
+      "imageurl": "",
+      "category_id": 9
+    }
+  },
+  {
+    "model": "attraction.token",
+    "pk": "9",
+    "fields": {
+      "name": "LX Factory",
+      "description": "",
+      "imageurl": "",
+      "category_id": 9
+    }
+  }
+]
