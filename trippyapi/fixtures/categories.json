@@ -1,62 +1,62 @@
 [
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "1",
     "fields": {
       "name": "Eatery"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "2",
     "fields": {
       "name": "Entertainment"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "3",
     "fields": {
       "name": "Historic"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "4",
     "fields": {
       "name": "Leisure"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "5",
     "fields": {
       "name": "Museum"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "6",
     "fields": {
       "name": "Park"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "7",
     "fields": {
       "name": "Shopping"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "8",
     "fields": {
       "name": "Sport"
     }
   },
   {
-    "model": "category.token",
+    "model": "trippyapi.category",
     "pk": "9",
     "fields": {
       "name": "Tourism"
