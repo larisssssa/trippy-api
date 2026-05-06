@@ -1,5 +1,6 @@
 from django.db import models
-from models import Trip, Attraction
+from .trip import Trip
+from .attraction import Attraction
 from django.conf import settings
 
 

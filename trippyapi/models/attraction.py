@@ -1,5 +1,5 @@
 from django.db import models
-from models import Category
+from .category import Category
 
 
 class Attraction(models.Model):
