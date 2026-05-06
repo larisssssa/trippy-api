@@ -221,4 +221,4 @@ __marimo__/
 db.sqlite3
 
 
-.DS_Store
+migrations/
