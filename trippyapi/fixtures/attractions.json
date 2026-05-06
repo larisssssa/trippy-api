@@ -1,91 +1,91 @@
 [
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "1",
     "fields": {
       "name": "Central Park",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg/1280px-Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg",
       "category_id": 6
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "2",
     "fields": {
       "name": "Times Square",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/330px-New_york_times_square-terabass.jpg",
       "category_id": 2
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "3",
     "fields": {
       "name": "Metropolitan Museum of Art",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg/250px-Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg",
       "category_id": 5
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "4",
     "fields": {
       "name": "Convento da Penha",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Convento_da_Penha_e_Vila_Velha_%28edited%29.jpg/330px-Convento_da_Penha_e_Vila_Velha_%28edited%29.jpg",
       "category_id": 3
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "5",
     "fields": {
       "name": "Curva da Jurema",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://cdn.esbrasil.com.br/wp-content/uploads/2024/02/Curva-da-Jurema_nx050216023.jpg",
       "category_id": 4
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "6",
     "fields": {
       "name": "Pedra Azul",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://iema.es.gov.br/Media/iema/_Profiles/c4d8c6e6/4f44d90f/image-3.png?v=638715094024629490",
       "category_id": 6
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "7",
     "fields": {
       "name": "Belem Tower",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Torre_Bel%C3%A9m_April_2009-4a.jpg/960px-Torre_Bel%C3%A9m_April_2009-4a.jpg",
       "category_id": 3
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "8",
     "fields": {
       "name": "Praca do Comercio",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Lisbon_%2836211708233%29_%28cropped%29.jpg/1920px-Lisbon_%2836211708233%29_%28cropped%29.jpg",
       "category_id": 9
     }
   },
   {
-    "model": "attraction.token",
+    "model": "trippyapi.attraction",
     "pk": "9",
     "fields": {
       "name": "LX Factory",
-      "description": "",
-      "imageurl": "",
+      "description": "lorem ipsum",
+      "imageurl": "https://mochiloesemochilinhas.com/wp-content/uploads/2024/07/LXFactory-21.jpg",
       "category_id": 9
     }
   }
