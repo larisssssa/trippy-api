@@ -1,0 +1,65 @@
+[
+  {
+    "model": "category.token",
+    "pk": "1",
+    "fields": {
+      "name": "Eatery"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "2",
+    "fields": {
+      "name": "Entertainment"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "3",
+    "fields": {
+      "name": "Historic"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "4",
+    "fields": {
+      "name": "Leisure"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "5",
+    "fields": {
+      "name": "Museum"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "6",
+    "fields": {
+      "name": "Park"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "7",
+    "fields": {
+      "name": "Shopping"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "8",
+    "fields": {
+      "name": "Sport"
+    }
+  },
+  {
+    "model": "category.token",
+    "pk": "9",
+    "fields": {
+      "name": "Tourism"
+    }
+  }
+]
