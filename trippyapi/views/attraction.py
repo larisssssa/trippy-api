@@ -94,13 +94,9 @@ class Attractions(ViewSet):
             return HttpResponseServerError(ex)
 
 
-class VoidSerializer(serializers.ModelSerializer):
-    """JSON serializer"""
+class AttractionSerializer(serializers.ModelSerializer):
+    """JSON serializer for attraction"""
 
     class Meta:
-        model = Void
-        fields = (
-            "id",
-            "sample_name",
-            "sample_description",
-        )
+        model = Attraction
+        fields = ("id", "name", "description", "imageurl", "category")
