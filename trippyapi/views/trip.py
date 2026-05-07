@@ -15,6 +15,7 @@ class Trips(ViewSet):
             Response -- JSON serialized instance
         """
         trip = Trip()
+        trip.name = request.data["name"]
         trip.destination = request.data["destination"]
         trip.departure_date = request.data["departure_date"]
         trip.return_date = request.data["return_date"]
@@ -49,6 +50,7 @@ class Trips(ViewSet):
         """
         try:
             trip = Trip.objects.get(pk=pk)
+            trip.name = request.data["name"]
             trip.destination = request.data["destination"]
             trip.departure_date = request.data["departure_date"]
             trip.return_date = request.data["return_date"]
@@ -102,6 +104,7 @@ class TripSerializer(serializers.ModelSerializer):
         model = Trip
         fields = (
             "id",
+            "name",
             "destination",
             "departure_date",
             "return_date",
