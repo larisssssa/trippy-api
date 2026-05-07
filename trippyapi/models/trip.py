@@ -7,7 +7,7 @@ from django.conf import settings
 class Trip(models.Model):
     name = models.CharField(max_length=255)
     destination = models.CharField(max_length=255)
-    departure_date = models.DateField()
+    departure_date = models.DateField(default="0000-00-00")
     return_date = models.DateField(default="0000-00-00")
     imageurl = models.CharField()
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
