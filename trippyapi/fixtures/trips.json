@@ -1,0 +1,50 @@
+[
+  {
+    "model": "trippyapi.trip",
+    "pk": "1",
+    "fields": {
+      "name": "Family Trip 2027",
+      "destination": "Lisbon, Portugal",
+      "departure_date": "2027-08-01",
+      "return_date": "2027-08-10",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Lisboa_-_Portugal_%2852597836992%29.jpg/1280px-Lisboa_-_Portugal_%2852597836992%29.jpg",
+      "creator_id": 1
+    }
+  },
+  {
+    "model": "trippyapi.trip",
+    "pk": "2",
+    "fields": {
+      "name": "Cowboy Carter",
+      "destination": "New York, New York, USA",
+      "departure_date": "2025-05-26",
+      "return_date": "2027-05-30",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg",
+      "creator_id": 2
+    }
+  },
+  {
+    "model": "trippyapi.trip",
+    "pk": "3",
+    "fields": {
+      "name": "Home Bound",
+      "destination": "Vitoria, Espirito Santo",
+      "departure_date": "2025-03-17",
+      "return_date": "2025-04-01",
+      "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/-2016-11-05_ao_13-_Vit%C3%B3ria_94_Romerito_Pontes_%2830875449812%29_%28cropped%29.jpg/1920px--2016-11-05_ao_13-_Vit%C3%B3ria_94_Romerito_Pontes_%2830875449812%29_%28cropped%29.jpg",
+      "creator_id": 3
+    }
+  },
+  {
+    "model": "trippyapi.trip",
+    "pk": "4",
+    "fields": {
+      "name": "We're Going Down!",
+      "destination": "Hell",
+      "departure_date": "2026-05-30",
+      "return_date": "2027-05-30",
+      "imageurl": "https://doubtersparish.com/wp-content/uploads/2021/05/hell-image.jpg",
+      "creator_id": 4
+    }
+  }
+]
