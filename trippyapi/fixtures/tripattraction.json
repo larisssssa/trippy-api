@@ -10,7 +10,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "2",
     "fields": {
       "attraction_id": 8,
       "trip_id": 1,
@@ -19,7 +19,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "3",
     "fields": {
       "attraction_id": 9,
       "trip_id": 1,
@@ -28,7 +28,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "4",
     "fields": {
       "attraction_id": 1,
       "trip_id": 2,
@@ -37,7 +37,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "5",
     "fields": {
       "attraction_id": 2,
       "trip_id": 2,
@@ -46,7 +46,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "6",
     "fields": {
       "attraction_id": 3,
       "trip_id": 2,
@@ -55,7 +55,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "7",
     "fields": {
       "attraction_id": 4,
       "trip_id": 3,
@@ -64,7 +64,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "8",
     "fields": {
       "attraction_id": 5,
       "trip_id": 3,
@@ -73,7 +73,7 @@
   },
   {
     "model": "trippyapi.tripattraction",
-    "pk": "1",
+    "pk": "9",
     "fields": {
       "attraction_id": 6,
       "trip_id": 3,
