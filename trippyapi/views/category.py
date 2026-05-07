@@ -5,11 +5,11 @@ from rest_framework.viewsets import ViewSet
 from trippyapi.models import Category
 
 
-class CategoryView(ViewSet):
+class Categories(ViewSet):
     """Category view set"""
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for single item
+        """Handle GET requests for single category
 
         Returns:
             Response -- JSON serialized instance
@@ -22,7 +22,7 @@ class CategoryView(ViewSet):
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
     def list(self, request):
-        """Handle GET requests for all items
+        """Handle GET requests for all categories
 
         Returns:
             Response -- JSON serialized array
@@ -35,13 +35,9 @@ class CategoryView(ViewSet):
             return HttpResponseServerError(ex)
 
 
-class VoidSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     """JSON serializer"""
 
     class Meta:
-        model = Void
-        fields = (
-            "id",
-            "sample_name",
-            "sample_description",
-        )
+        model = Category
+        fields = ("id", "name")
