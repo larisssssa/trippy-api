@@ -30,11 +30,13 @@ from trippyapi.views import (
     get_current_user,
     Categories,
     Trips,
+    Attractions,
 )
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r"categories", Categories, "category")
 router.register(r"trips", Trips, "trip")
+router.register(r"attractions", Attractions, "attraction")
 
 urlpatterns = [
     path("", include(router.urls)),
