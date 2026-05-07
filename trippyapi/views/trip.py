@@ -42,17 +42,19 @@ class Trips(ViewSet):
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, pk=None):
-        """Handle PUT requests
+        """Handle PUT requests, updating Trip
 
         Returns:
             Response -- Empty body with 204 status code
         """
         try:
-            void = Trip.objects.get(pk=pk)
-            void.sample_name = request.data["name"]
-            void.sample_description = request.data["description"]
-            void.save()
-        except Void.DoesNotExist:
+            trip = Trip.objects.get(pk=pk)
+            trip.destination = request.data["destination"]
+            trip.departure_date = request.data["departure_date"]
+            trip.return_date = request.data["return_date"]
+            trip.imageurl = request.data["imageurl"]
+            trip.save()
+        except Trip.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
