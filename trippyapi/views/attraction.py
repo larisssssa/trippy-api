@@ -41,17 +41,19 @@ class Attractions(ViewSet):
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, pk=None):
-        """Handle PUT requests
+        """Handle PUT requests, update Attraction
 
         Returns:
             Response -- Empty body with 204 status code
         """
         try:
-            void = Void.objects.get(pk=pk)
-            void.sample_name = request.data["name"]
-            void.sample_description = request.data["description"]
-            void.save()
-        except Void.DoesNotExist:
+            attraction = Attraction.objects.get(pk=pk)
+            attraction.name = request.data["name"]
+            attraction.description = request.data["description"]
+            attraction.imageurl = request.data["imageurl"]
+            attraction.category = request.data["category"]
+            attraction.save()
+        except Attraction.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
