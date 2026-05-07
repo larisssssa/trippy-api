@@ -63,17 +63,17 @@ class Trips(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single item
+        """Handle DELETE requests for a single trip
 
         Returns:
             Response -- 200, 404, or 500 status code
         """
         try:
-            void = Void.objects.get(pk=pk)
-            void.delete()
+            trip = Trip.objects.get(pk=pk)
+            trip.delete()
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-        except Void.DoesNotExist as ex:
+        except Trip.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
