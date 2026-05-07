@@ -70,5 +70,59 @@
       "groups": [],
       "user_permissions": []
     }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$yqwpSGkyqT1OldnvbVTRGd$y8OTuMM8TcBfQdagp39vaknzQZDw3jsjQBn390jyefY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dad",
+      "first_name": "Dad",
+      "last_name": "F",
+      "email": "dad@f.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-07T15:00:29.396Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$fAsTfk42ArOprlUBH0vGz5$jU5IoxDDakDIJJhrjc9TS1iDA0VNzwqfWWYyAAEVbRc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "mom",
+      "first_name": "Mom",
+      "last_name": "F",
+      "email": "mom@f.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-07T15:00:45.820Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$I8V464hHS3Tub1zWH5nfIk$Fav0/T7UVq7176F4u0lstuzPI8LxpbvycW26gsZORSE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "sister",
+      "first_name": "Sister",
+      "last_name": "F",
+      "email": "sister@f.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-07T15:01:07.549Z",
+      "groups": [],
+      "user_permissions": []
+    }
   }
 ]
