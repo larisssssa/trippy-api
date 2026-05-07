@@ -81,14 +81,14 @@ class Attractions(ViewSet):
             )
 
     def list(self, request):
-        """Handle GET requests for all items
+        """Handle GET requests for all attractions
 
         Returns:
             Response -- JSON serialized array
         """
         try:
-            voids = Void.objects.all()
-            serializer = VoidSerializer(voids, many=True)
+            attractions = Attraction.objects.all()
+            serializer = VoidSerializer(attractions, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
