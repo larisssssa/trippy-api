@@ -95,13 +95,16 @@ class Trips(ViewSet):
             return HttpResponseServerError(ex)
 
 
-class VoidSerializer(serializers.ModelSerializer):
-    """JSON serializer"""
+class TripSerializer(serializers.ModelSerializer):
+    """JSON serializer for Trips"""
 
     class Meta:
-        model = Void
+        model = Trip
         fields = (
             "id",
-            "sample_name",
-            "sample_description",
+            "destination",
+            "departure_date",
+            "return_date",
+            "imageurl",
+            "creator",
         )
