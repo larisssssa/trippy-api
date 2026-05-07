@@ -29,14 +29,14 @@ class Trips(ViewSet):
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for single item
+        """Handle GET requests for single trip
 
         Returns:
             Response -- JSON serialized instance
         """
         try:
-            void = Void.objects.get(pk=pk)
-            serializer = TripSerializer(void)
+            trip = Trip.objects.get(pk=pk)
+            serializer = TripSerializer(trip)
             return Response(serializer.data)
         except Exception as ex:
             return Response({"reason": ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
