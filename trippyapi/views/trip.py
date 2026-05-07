@@ -82,14 +82,14 @@ class Trips(ViewSet):
             )
 
     def list(self, request):
-        """Handle GET requests for all items
+        """Handle GET requests for all trips
 
         Returns:
             Response -- JSON serialized array
         """
         try:
-            voids = Void.objects.all()
-            serializer = VoidSerializer(voids, many=True)
+            trips = Trip.objects.all()
+            serializer = TripSerializer(trips, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
