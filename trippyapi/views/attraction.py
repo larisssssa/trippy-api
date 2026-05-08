@@ -3,6 +3,7 @@ from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from trippyapi.models import Attraction
+from .category import CategorySerializer
 
 
 class Attractions(ViewSet):
@@ -97,6 +98,9 @@ class Attractions(ViewSet):
 class AttractionSerializer(serializers.ModelSerializer):
     """JSON serializer for attraction"""
 
+    category = CategorySerializer()
+
     class Meta:
         model = Attraction
         fields = ("id", "name", "description", "imageurl", "category")
+        depth = 1
