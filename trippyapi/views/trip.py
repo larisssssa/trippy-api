@@ -133,24 +133,27 @@ class Trips(ViewSet):
             else:
                 return Response("No permissions", status=status.HTTP_401_UNAUTHORIZED)
 
-        # if request.method == "DELETE":
-        #     user = User.objects.get(username=request.data["username"])
-        #     trip = Trip.objects.get(pk=pk)
+        if request.method == "DELETE":
+            user = User.objects.get(username=request.data["username"])
+            trip = Trip.objects.get(pk=pk)
 
-        #     try:
-        #         attendee = TripUser.objects.get(user=user, trip=trip)
-        #     except:
-        #         return Response(
-        #             "Trip User does not exist", status=status.HTTP_404_NOT_FOUND
-        #         )
-        #     if attendee == request.auth.user or trip.creator == request.auth.user:
-        #         attendee.delete()
-        #         return Response(None, status=status.HTTP_204_NO_CONTENT)
-        #     else:
-        #         return Response(
-        #             "No permission to delete user from trip",
-        #             status=status.HTTP_405_METHOD_NOT_ALLOWED,
-        #         )
+            try:
+                attendee = TripUser.objects.get(user=user, trip=trip)
+            except:
+                return Response(
+                    "Trip User does not exist", status=status.HTTP_404_NOT_FOUND
+                )
+            if (
+                attendee.user_id == request.auth.user_id
+                or trip.creator == request.auth.user
+            ):
+                attendee.delete()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response(
+                    "No permission to delete user from trip",
+                    status=status.HTTP_405_METHOD_NOT_ALLOWED,
+                )
 
 
 class TripSerializer(serializers.ModelSerializer):
