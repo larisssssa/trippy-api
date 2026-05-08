@@ -156,8 +156,27 @@ class Trips(ViewSet):
                 )
 
 
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ("first_name", "last_name", "username")
+        depth = 1
+
+
+class TripUserSerializer(serializers.ModelSerializer):
+    """JSON serializer for Trip users"""
+
+    user = UserSerializer()
+
+    class Meta:
+        model = TripUser
+        fields = ("user_id", "user")
+
+
 class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for Trips"""
+
+    attendees = serializers.SerializerMethodField()
 
     class Meta:
         model = Trip
@@ -169,4 +188,9 @@ class TripSerializer(serializers.ModelSerializer):
             "return_date",
             "imageurl",
             "creator",
+            "attendees",
         )
+
+    def get_attendees(self, obj):
+        list = TripUser.objects.filter(trip_id=obj.id)
+        return TripUserSerializer(list, many=True).data
