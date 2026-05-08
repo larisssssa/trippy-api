@@ -159,7 +159,7 @@ class Trips(ViewSet):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "username")
+        fields = ("id", "first_name", "last_name", "username")
         depth = 1
 
 
@@ -170,7 +170,7 @@ class TripUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TripUser
-        fields = ("user_id", "user")
+        fields = ("id", "user")
 
 
 class TripSerializer(serializers.ModelSerializer):
