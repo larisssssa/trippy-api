@@ -88,7 +88,7 @@ class Attractions(ViewSet):
         """
         try:
             attractions = Attraction.objects.all()
-            serializer = VoidSerializer(attractions, many=True)
+            serializer = AttractionSerializer(attractions, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
