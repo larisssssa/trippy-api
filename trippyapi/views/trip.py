@@ -1,8 +1,10 @@
 from django.http import HttpResponseServerError
 from rest_framework import serializers, status
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from trippyapi.models import Trip
+from trippyapi.models import Trip, TripUser
+from django.contrib.auth.models import User
 
 
 class Trips(ViewSet):
@@ -95,6 +97,60 @@ class Trips(ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
             return HttpResponseServerError(ex)
+
+    @action(detail=True, methods=["post", "delete"], url_path="attendee")
+    def trip_attendee(self, request, pk=None):
+
+        if request.method == "POST":
+            trip = Trip.objects.get(pk=pk)
+            if request.auth.user_id == trip.creator_id:
+                try:
+                    attendee = User.objects.get(username=request.data["username"])
+                except User.DoesNotExist:
+                    return Response(
+                        "User does not exist", status=status.HTTP_404_NOT_FOUND
+                    )
+
+                isAdmin = True if attendee.id == trip.creator_id else False
+
+                try:
+                    trip_user = TripUser.objects.get(user=attendee, trip=trip)
+                    return Response(
+                        "User already attending this trip",
+                        status=status.HTTP_200_OK,
+                    )
+                except TripUser.DoesNotExist:
+                    pass
+
+                trip_user = TripUser()
+                trip_user.user = attendee
+                trip_user.trip = trip
+                trip_user.isAdmin = isAdmin
+                trip_user.save()
+
+                return Response(None, status=status.HTTP_201_CREATED)
+
+            else:
+                return Response("No permissions", status=status.HTTP_401_UNAUTHORIZED)
+
+        # if request.method == "DELETE":
+        #     user = User.objects.get(username=request.data["username"])
+        #     trip = Trip.objects.get(pk=pk)
+
+        #     try:
+        #         attendee = TripUser.objects.get(user=user, trip=trip)
+        #     except:
+        #         return Response(
+        #             "Trip User does not exist", status=status.HTTP_404_NOT_FOUND
+        #         )
+        #     if attendee == request.auth.user or trip.creator == request.auth.user:
+        #         attendee.delete()
+        #         return Response(None, status=status.HTTP_204_NO_CONTENT)
+        #     else:
+        #         return Response(
+        #             "No permission to delete user from trip",
+        #             status=status.HTTP_405_METHOD_NOT_ALLOWED,
+        #         )
 
 
 class TripSerializer(serializers.ModelSerializer):
