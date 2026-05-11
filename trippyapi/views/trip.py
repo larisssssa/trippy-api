@@ -170,19 +170,19 @@ class Trips(ViewSet):
 
             return Response(None, status=status.HTTP_201_CREATED)
 
-        # if request.method == "DELETE":
-        #     try:
-        #         trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
-        #     except:
-        #         return Response(
-        #             "Trip Attraction does not exist", status=status.HTTP_404_NOT_FOUND
-        #         )
-        #     if (
-        #         user.user_id == request.auth.user_id
-        #         or trip.creator == request.auth.user
-        #     ):
-        #         trip_attr.delete()
-        #         return Response(None, status=status.HTTP_204_NO_CONTENT)
+        if request.method == "DELETE":
+            try:
+                trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
+            except:
+                return Response(
+                    "Trip Attraction does not exist", status=status.HTTP_404_NOT_FOUND
+                )
+            if (
+                user.user_id == request.auth.user_id
+                or trip.creator == request.auth.user
+            ):
+                trip_attr.delete()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
