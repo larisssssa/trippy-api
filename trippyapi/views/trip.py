@@ -170,16 +170,15 @@ class Trips(ViewSet):
                 "Attraction does not exist", status=status.HTTP_404_NOT_FOUND
             )
 
-        try:
-            trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
-            return Response(
-                "Attraction already added to this trip",
-                status=status.HTTP_200_OK,
-            )
-        except TripAttraction.DoesNotExist:
-            pass
-
         if request.method == "POST" and TripUser.objects.filter(user_id=user).exists():
+            try:
+                trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
+                return Response(
+                    "Attraction already added to this trip",
+                    status=status.HTTP_200_OK,
+                )
+            except TripAttraction.DoesNotExist:
+                pass
             trip_attr = TripAttraction()
             trip_attr.user_id = user
             trip_attr.trip_id = trip.id
@@ -196,7 +195,7 @@ class Trips(ViewSet):
                     "Trip Attraction does not exist", status=status.HTTP_404_NOT_FOUND
                 )
             if (
-                user.user_id == request.auth.user_id
+                user == request.auth.user_id
                 or trip.creator == request.auth.user
             ):
                 trip_attr.delete()
