@@ -18,6 +18,8 @@ class Attractions(ViewSet):
         attraction = Attraction()
         attraction.name = request.data["name"]
         attraction.description = request.data["description"]
+        attraction.city = request.data["city"]
+        attraction.country = request.data["country"]
         attraction.imageurl = request.data["imageurl"]
         attraction.category = request.data["category"]
 
@@ -51,6 +53,8 @@ class Attractions(ViewSet):
             attraction = Attraction.objects.get(pk=pk)
             attraction.name = request.data["name"]
             attraction.description = request.data["description"]
+            attraction.city = request.data["city"]
+            attraction.country = request.data["country"]
             attraction.imageurl = request.data["imageurl"]
             attraction.category = request.data["category"]
             attraction.save()
@@ -102,5 +106,13 @@ class AttractionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Attraction
-        fields = ("id", "name", "description", "imageurl", "category")
+        fields = (
+            "id",
+            "name",
+            "description",
+            "city",
+            "country",
+            "imageurl",
+            "category",
+        )
         depth = 1
