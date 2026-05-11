@@ -162,6 +162,12 @@ class Trips(ViewSet):
     def trip_attraction(self, request, pk=None):
         trip = Trip.objects.get(pk=pk)
         user = request.auth.user_id
+        try:
+            trip_user = TripUser.objects.get(trip_id=pk, user_id=user)
+        except TripUser.DoesNotExist:
+            return Response(
+                "User is not attending this trip", status=status.HTTP_404_NOT_FOUND
+            )
 
         try:
             attraction = Attraction.objects.get(id=request.data["id"])
@@ -194,12 +200,14 @@ class Trips(ViewSet):
                 return Response(
                     "Trip Attraction does not exist", status=status.HTTP_404_NOT_FOUND
                 )
-            if (
-                user == request.auth.user_id
-                or trip.creator == request.auth.user
-            ):
+            if user == trip_attr.user_id or user == trip.creator:
                 trip_attr.delete()
                 return Response(None, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response(
+                    "User does not have permissions",
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
 
 
 class TripAttractionSerializer(serializers.ModelSerializer):
