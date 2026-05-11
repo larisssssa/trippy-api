@@ -3,7 +3,7 @@ from rest_framework import serializers, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from trippyapi.models import Trip, TripUser
+from trippyapi.models import Trip, TripUser, Attraction, TripAttraction
 from django.contrib.auth.models import User
 
 
@@ -154,6 +154,35 @@ class Trips(ViewSet):
                     "No permission to delete user from trip",
                     status=status.HTTP_405_METHOD_NOT_ALLOWED,
                 )
+
+    @action(detail=True, methods=["post", "delete"], url_path="attraction")
+    def trip_attraction(self, request, pk=None):
+        trip = Trip.objects.get(pk=pk)
+        user = request.auth.user_id
+        attraction = Attraction.objects.get(attraction__id=request.data["id"])
+
+        if request.method == "POST" and TripUser.objects.filter(user_id=user).exists():
+            trip_attr = TripAttraction()
+            trip_attr.user = user
+            trip_attr.trip = trip
+            trip_attr.attraction = attraction
+            trip_attr.save()
+
+            return Response(None, status=status.HTTP_201_CREATED)
+
+        # if request.method == "DELETE":
+        #     try:
+        #         trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
+        #     except:
+        #         return Response(
+        #             "Trip Attraction does not exist", status=status.HTTP_404_NOT_FOUND
+        #         )
+        #     if (
+        #         user.user_id == request.auth.user_id
+        #         or trip.creator == request.auth.user
+        #     ):
+        #         trip_attr.delete()
+        #         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
