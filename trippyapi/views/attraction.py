@@ -21,7 +21,7 @@ class Attractions(ViewSet):
         attraction.city = request.data["city"]
         attraction.country = request.data["country"]
         attraction.imageurl = request.data["imageurl"]
-        attraction.category = request.data["category"]
+        attraction.category_id = request.data["category_id"]
 
         try:
             attraction.save()
@@ -56,7 +56,7 @@ class Attractions(ViewSet):
             attraction.city = request.data["city"]
             attraction.country = request.data["country"]
             attraction.imageurl = request.data["imageurl"]
-            attraction.category = request.data["category"]
+            attraction.category_id = request.data["category_id"]
             attraction.save()
         except Attraction.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
