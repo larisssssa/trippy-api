@@ -162,13 +162,28 @@ class Trips(ViewSet):
     def trip_attraction(self, request, pk=None):
         trip = Trip.objects.get(pk=pk)
         user = request.auth.user_id
-        attraction = Attraction.objects.get(attraction__id=request.data["id"])
+
+        try:
+            attraction = Attraction.objects.get(id=request.data["id"])
+        except Attraction.DoesNotExist:
+            return Response(
+                "Attraction does not exist", status=status.HTTP_404_NOT_FOUND
+            )
+
+        try:
+            trip_attr = TripAttraction.objects.get(trip=trip, attraction=attraction)
+            return Response(
+                "Attraction already added to this trip",
+                status=status.HTTP_200_OK,
+            )
+        except TripAttraction.DoesNotExist:
+            pass
 
         if request.method == "POST" and TripUser.objects.filter(user_id=user).exists():
             trip_attr = TripAttraction()
-            trip_attr.user = user
-            trip_attr.trip = trip
-            trip_attr.attraction = attraction
+            trip_attr.user_id = user
+            trip_attr.trip_id = trip.id
+            trip_attr.attraction_id = attraction.id
             trip_attr.save()
 
             return Response(None, status=status.HTTP_201_CREATED)
