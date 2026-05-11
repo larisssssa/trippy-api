@@ -14,11 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]
 from django.contrib import admin
 from django.urls import include, path
@@ -27,13 +28,19 @@ from trippyapi.views import (
     register_user,
     login_user,
     get_current_user,
-    )
+    Categories,
+    Trips,
+    Attractions,
+)
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r"categories", Categories, "category")
+router.register(r"trips", Trips, "trip")
+router.register(r"attractions", Attractions, "attraction")
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('register', register_user),
-    path('login', login_user),
-    path('current_user', get_current_user),
+    path("", include(router.urls)),
+    path("register", register_user),
+    path("login", login_user),
+    path("current_user", get_current_user),
 ]
