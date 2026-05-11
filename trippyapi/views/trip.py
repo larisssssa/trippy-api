@@ -4,6 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from trippyapi.models import Trip, TripUser, Attraction, TripAttraction
+from .attraction import AttractionSerializer
 from django.contrib.auth.models import User
 
 
@@ -19,6 +20,7 @@ class Trips(ViewSet):
         trip = Trip()
         trip.name = request.data["name"]
         trip.destination = request.data["destination"]
+        trip.country = request.data["country"]
         trip.departure_date = request.data["departure_date"]
         trip.return_date = request.data["return_date"]
         trip.imageurl = request.data["imageurl"]
@@ -54,6 +56,7 @@ class Trips(ViewSet):
             trip = Trip.objects.get(pk=pk)
             trip.name = request.data["name"]
             trip.destination = request.data["destination"]
+            trip.country = request.data["country"]
             trip.departure_date = request.data["departure_date"]
             trip.return_date = request.data["return_date"]
             trip.imageurl = request.data["imageurl"]
@@ -185,6 +188,14 @@ class Trips(ViewSet):
                 return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
+class TripAttractionSerializer(serializers.ModelSerializer):
+    attraction = AttractionSerializer()
+
+    class Meta:
+        model = TripAttraction
+        fields = ("id", "attraction", "user")
+
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
@@ -206,6 +217,7 @@ class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for Trips"""
 
     attendees = serializers.SerializerMethodField()
+    attractions = serializers.SerializerMethodField()
 
     class Meta:
         model = Trip
@@ -213,13 +225,19 @@ class TripSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "destination",
+            "country",
             "departure_date",
             "return_date",
             "imageurl",
             "creator",
             "attendees",
+            "attractions",
         )
 
     def get_attendees(self, obj):
         list = TripUser.objects.filter(trip_id=obj.id)
         return TripUserSerializer(list, many=True).data
+
+    def get_attractions(self, obj):
+        list = TripAttraction.objects.filter(trip_id=obj.id)
+        return TripAttractionSerializer(list, many=True).data
