@@ -95,7 +95,9 @@ class Trips(ViewSet):
             Response -- JSON serialized array
         """
         try:
-            trips = Trip.objects.filter(tripuser__user_id=request.auth.user)
+            trips = Trip.objects.filter(tripuser__user_id=request.auth.user).order_by(
+                "-departure_date"
+            )
             serializer = TripSerializer(trips, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:
