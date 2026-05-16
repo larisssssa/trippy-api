@@ -40,7 +40,7 @@ class Trips(ViewSet):
             Response -- JSON serialized instance
         """
         try:
-            trip = Trip.objects.get(pk=pk)
+            trip = Trip.objects.get(pk=pk, tripuser__user_id=request.auth.user)
             serializer = TripSerializer(trip)
             return Response(serializer.data)
         except Exception as ex:
