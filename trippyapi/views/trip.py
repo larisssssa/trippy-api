@@ -60,6 +60,8 @@ class Trips(ViewSet):
             trip.departure_date = request.data["departure_date"]
             trip.return_date = request.data["return_date"]
             trip.imageurl = request.data["imageurl"]
+            creator = User.objects.get(id=request.data["creator"])
+            trip.creator = creator
             trip.save()
         except Trip.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
