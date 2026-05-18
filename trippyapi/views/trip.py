@@ -40,7 +40,7 @@ class Trips(ViewSet):
             Response -- JSON serialized instance
         """
         try:
-            trip = Trip.objects.get(pk=pk)
+            trip = Trip.objects.get(pk=pk, tripuser__user_id=request.auth.user)
             serializer = TripSerializer(trip)
             return Response(serializer.data)
         except Exception as ex:
@@ -60,6 +60,8 @@ class Trips(ViewSet):
             trip.departure_date = request.data["departure_date"]
             trip.return_date = request.data["return_date"]
             trip.imageurl = request.data["imageurl"]
+            creator = User.objects.get(id=request.data["creator"])
+            trip.creator = creator
             trip.save()
         except Trip.DoesNotExist:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
@@ -95,7 +97,9 @@ class Trips(ViewSet):
             Response -- JSON serialized array
         """
         try:
-            trips = Trip.objects.all()
+            trips = Trip.objects.filter(tripuser__user_id=request.auth.user).order_by(
+                "-departure_date"
+            )
             serializer = TripSerializer(trips, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as ex:

@@ -37,18 +37,5 @@
       "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/-2016-11-05_ao_13-_Vit%C3%B3ria_94_Romerito_Pontes_%2830875449812%29_%28cropped%29.jpg/1920px--2016-11-05_ao_13-_Vit%C3%B3ria_94_Romerito_Pontes_%2830875449812%29_%28cropped%29.jpg",
       "creator_id": 6
     }
-  },
-  {
-    "model": "trippyapi.trip",
-    "pk": "4",
-    "fields": {
-      "name": "We're Going Down!",
-      "destination": "Hell",
-      "country": "other",
-      "departure_date": "2026-05-30",
-      "return_date": "2027-05-30",
-      "imageurl": "https://doubtersparish.com/wp-content/uploads/2021/05/hell-image.jpg",
-      "creator_id": 4
-    }
   }
 ]
