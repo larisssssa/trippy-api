@@ -97,41 +97,5 @@
       "trip_id": 3,
       "isAdmin": false
     }
-  },
-  {
-    "model": "trippyapi.tripuser",
-    "pk": "12",
-    "fields": {
-      "user_id": 1,
-      "trip_id": 4,
-      "isAdmin": false
-    }
-  },
-  {
-    "model": "trippyapi.tripuser",
-    "pk": "13",
-    "fields": {
-      "user_id": 2,
-      "trip_id": 4,
-      "isAdmin": false
-    }
-  },
-  {
-    "model": "trippyapi.tripuser",
-    "pk": "14",
-    "fields": {
-      "user_id": 3,
-      "trip_id": 4,
-      "isAdmin": false
-    }
-  },
-  {
-    "model": "trippyapi.tripuser",
-    "pk": "15",
-    "fields": {
-      "user_id": 4,
-      "trip_id": 4,
-      "isAdmin": true
-    }
   }
 ]
