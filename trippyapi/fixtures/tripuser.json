@@ -1,0 +1,101 @@
+[
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "1",
+    "fields": {
+      "user_id": 1,
+      "trip_id": 1,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "2",
+    "fields": {
+      "user_id": 7,
+      "trip_id": 1,
+      "isAdmin": true
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "3",
+    "fields": {
+      "user_id": 6,
+      "trip_id": 1,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "4",
+    "fields": {
+      "user_id": 5,
+      "trip_id": 1,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "5",
+    "fields": {
+      "user_id": 1,
+      "trip_id": 2,
+      "isAdmin": true
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "6",
+    "fields": {
+      "user_id": 7,
+      "trip_id": 2,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "7",
+    "fields": {
+      "user_id": 6,
+      "trip_id": 2,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "8",
+    "fields": {
+      "user_id": 1,
+      "trip_id": 3,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "9",
+    "fields": {
+      "user_id": 7,
+      "trip_id": 3,
+      "isAdmin": false
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "10",
+    "fields": {
+      "user_id": 6,
+      "trip_id": 3,
+      "isAdmin": true
+    }
+  },
+  {
+    "model": "trippyapi.tripuser",
+    "pk": "11",
+    "fields": {
+      "user_id": 5,
+      "trip_id": 3,
+      "isAdmin": false
+    }
+  }
+]

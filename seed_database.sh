@@ -2,8 +2,13 @@
 
 rm db.sqlite3
 rm -rf ./trippyapi/migrations
-python3 manage.py migrate
-python3 manage.py makemigrations trippyapi
-python3 manage.py migrate trippyapi
-python3 manage.py loaddata users
-python3 manage.py loaddata tokens
+python manage.py migrate
+python manage.py makemigrations trippyapi
+python manage.py migrate trippyapi
+python manage.py loaddata users
+python manage.py loaddata tokens
+python manage.py loaddata categories
+python manage.py loaddata attractions
+python manage.py loaddata trips
+python manage.py loaddata tripuser
+python manage.py loaddata tripattraction
